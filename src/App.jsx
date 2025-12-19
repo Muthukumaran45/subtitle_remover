@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
 import HowItWorks from "./pages/HowItWorks";
 import Contact from "./pages/Contact";
+import "./index.css";
 
 function App() {
   return (
