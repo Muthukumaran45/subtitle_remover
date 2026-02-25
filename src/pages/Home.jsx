@@ -1,9 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import * as THREE from "three";
 
 function Home() {
 
     const mountRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const mount = mountRef.current;
@@ -63,7 +65,6 @@ function Home() {
             cancelAnimationFrame(animationId);
             window.removeEventListener("resize", handleResize);
 
-            // SAFE REMOVE
             if (mount && renderer.domElement && mount.contains(renderer.domElement)) {
                 mount.removeChild(renderer.domElement);
             }
@@ -71,7 +72,6 @@ function Home() {
             renderer.dispose();
         };
     }, []);
-
 
     return (
         <div className="min-h-screen relative">
@@ -86,7 +86,7 @@ function Home() {
 
                 {/* Navbar */}
                 <div className="mx-[5%] mt-[3%] mb-[2%] bg-emerald-600 rounded-xl shadow-lg p-4 flex items-center">
-                    <h1 className="text-xl font-bold text-white">Subtitle Remover</h1>
+                    <h1 className="text-xl font-bold text-white">Subtitle Adder</h1>
 
                     <ul className="flex gap-8 font-medium text-white absolute left-1/2 -translate-x-1/2">
                         <li className="cursor-pointer">Home</li>
@@ -104,94 +104,71 @@ function Home() {
                     </div>
                 </div>
 
-                {/* Content 1*/}
+                {/* Content 1 */}
                 <div className="mx-[5%] mb-[5%] gap-6">
-                    <div className="col-span-2 rounded-xl p-6 flex  gap-20">
+                    <div className="col-span-2 rounded-xl p-6 flex gap-20">
                         <img
                             src="hero.webp"
-                            alt="Sample"
+                            alt="Subtitle Generator Preview"
                             style={{ width: "40%", height: "auto" }}
                             className="object-cover rounded-xl shadow"
                         />
 
                         <div className="flex flex-col gap-3">
-                            <h1 className="text-4xl font-bold">Remove Subtitles from Video Easily</h1>
+                            <h1 className="text-4xl font-bold">
+                                Add Subtitles to Video Easily
+                            </h1>
+
                             <p className="text-gray-700 text-md mt-3">
-                                Effortlessly remove subtitles from video with our AI-powered tool. It erases captions while preserving video quality — fast, simple, and highly effective.
+                                Effortlessly add subtitles to your videos with our AI-powered tool.
+                                Automatically generate accurate captions while preserving video
+                                quality — fast, simple, and highly effective.
                             </p>
 
-                            <button className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg w-fit">
-                                Upload
+                            <button onClick={() => navigate("/dashboard")} className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg w-fit">
+                                Upload Video
                             </button>
 
                             <img
                                 src="hero_img2.jpg"
-                                alt="Sample"
+                                alt="Auto Subtitle Example"
                                 style={{ width: "70%", height: "auto" }}
-                                className="object-cover rounded-xl shadow "
-                            />
-                        </div>
-
-                    </div>
-                </div>
-
-
-                {/* Content 2*/}
-                <div className="mx-[5%] mb-[5%] gap-6">
-                    <div className="col-span-2 rounded-xl p-6 flex  gap-20">
-                        <img
-                            src="hero.webp"
-                            alt="Sample"
-                            style={{ width: "40%", height: "auto" }}
-                            className="object-cover rounded-xl shadow"
-                        />
-
-                        <div className="flex flex-col gap-3">
-                            <h1 className="text-4xl font-bold">Remove Subtitles from Video Easily</h1>
-                            <p className="text-gray-700 text-md mt-3">
-                                Effortlessly remove subtitles from video with our AI-powered tool. It erases captions while preserving video quality — fast, simple, and highly effective.
-                            </p>
-
-                            <button className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg w-fit">
-                                Upload
-                            </button>
-
-                            <img
-                                src="hero_img2.jpg"
-                                alt="Sample"
-                                style={{ width: "70%", height: "auto" }}
-                                className="object-cover rounded-xl shadow "
+                                className="object-cover rounded-xl shadow"
                             />
                         </div>
                     </div>
                 </div>
 
-
-                {/* Content 3*/}
+                {/* Content 2 */}
                 <div className="mx-[5%] mb-[5%] gap-6">
-                    <div className="col-span-2 rounded-xl p-6 flex  gap-20">
+                    <div className="col-span-2 rounded-xl p-6 flex gap-20">
                         <img
                             src="hero.webp"
-                            alt="Sample"
+                            alt="Subtitle Editing Interface"
                             style={{ width: "40%", height: "auto" }}
                             className="object-cover rounded-xl shadow"
                         />
 
                         <div className="flex flex-col gap-3">
-                            <h1 className="text-4xl font-bold">Remove Subtitles from Video Easily</h1>
+                            <h1 className="text-4xl font-bold">
+                                Customize and Export Captions
+                            </h1>
+
                             <p className="text-gray-700 text-md mt-3">
-                                Effortlessly remove subtitles from video with our AI-powered tool. It erases captions while preserving video quality — fast, simple, and highly effective.
+                                Edit subtitle timing, adjust styles, change fonts, and export
+                                captions in multiple formats. Perfect for YouTube, Instagram,
+                                online courses, and professional video production.
                             </p>
 
                             <button className="mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 py-2 rounded-lg w-fit">
-                                Upload
+                                Generate Subtitles
                             </button>
 
                             <img
                                 src="hero_img2.jpg"
-                                alt="Sample"
+                                alt="Subtitle Export Example"
                                 style={{ width: "70%", height: "auto" }}
-                                className="object-cover rounded-xl shadow "
+                                className="object-cover rounded-xl shadow"
                             />
                         </div>
                     </div>
